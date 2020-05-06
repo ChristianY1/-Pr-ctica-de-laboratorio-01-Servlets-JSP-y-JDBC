@@ -8,7 +8,7 @@ import java.util.List;
 import ec.edu.ups.dao.UsuarioDAO;
 import ec.edu.ups.modelo.Usuario;
 
-public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements UsuarioDAO{
+public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements UsuarioDAO{
 
 	@Override
 	public void createTable() {
@@ -21,18 +21,17 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements 
 	public void create(Usuario usuario) {
 		// TODO Auto-generated method stub
 		conexionUno.update("INSERT usuario VALUES (" + usuario.getCedula() + ", '" 
-													 + usuario.getNombre() + ", '"
-													 + usuario.getApellido() + ", '"
-													 + usuario.getCorreo() + ", '"
-													 + usuario.getContrasenia() + "')");
-		
+				 + usuario.getNombre() + ", '"
+				 + usuario.getApellido() + ", '"
+				 + usuario.getCorreo() + ", '"
+				 + usuario.getContrasenia() + "')");
 	}
 
 	@Override
-	public Usuario read(Integer id) {
+	public Usuario read(String cedula) {
 		// TODO Auto-generated method stub
 		Usuario usuario = null;
-		ResultSet rs = conexionUno.query("SELECT * FROM usuario WHERE id=" + id);
+		ResultSet rs = conexionUno.query("SELECT * FROM usuario WHERE id=" + usuario.getCedula());
 		try {
 			if (rs != null && rs.next()) {
 				usuario = new Usuario(rs.getString("usu_cedula"),
@@ -51,7 +50,10 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements 
 	@Override
 	public void update(Usuario usuario) {
 		// TODO Auto-generated method stub
-		conexionUno.update("UPDATE usuario SET usu_nombre = '" + usuario.getNombre() +
+		
+
+
+	conexionUno.update("UPDATE usuario SET usu_nombre = '" + usuario.getNombre() +
 											   "', usu_apellido = '"+ usuario.getApellido() + 
 											   "', usu_correo = '"+ usuario.getCorreo() + 
 											   "', usu_contrasenia = '"+ usuario.getContrasenia() + 
@@ -63,7 +65,6 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements 
 	public void delete(Usuario usuario) {
 		// TODO Auto-generated method stub
 		conexionUno.update("DELETE FROM usuario WHERE usu_cedula = " + usuario.getCedula());
-		
 		
 	}
 
@@ -89,6 +90,8 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, Integer> implements 
 		
 		
 		return list;
+
+
 	}
 
 }

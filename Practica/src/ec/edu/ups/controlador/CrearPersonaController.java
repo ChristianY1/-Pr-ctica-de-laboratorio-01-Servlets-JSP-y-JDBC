@@ -41,21 +41,14 @@ public class CrearPersonaController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
-	}
-
-	/**
-	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
-	 */
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		String url = null;
 		
 		try {
 			usuario.setCedula(request.getParameter("cedula"));
 			usuario.setNombre(request.getParameter("first_name"));
 			usuario.setApellido(request.getParameter("last_name"));
-			usuario.setCorreo(request.getParameter("email"));
 			usuario.setContrasenia(request.getParameter("password"));
+			usuario.setCorreo(request.getParameter("email"));
 			usuarioDao.create(usuario);
 			System.out.println("hecho!");
 			
@@ -64,10 +57,17 @@ public class CrearPersonaController extends HttpServlet {
 		} catch (Exception e) {
 			// TODO: handle exception
 			
-			url = "/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/WebContent/JSPs/publico/Login_v1/index.html";
+			
 			
 		}
-		getServletContext().getRequestDispatcher(url).forward(request, response);
+
+	}
+
+	/**
+	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
+	 */
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		
 		
 	}
 

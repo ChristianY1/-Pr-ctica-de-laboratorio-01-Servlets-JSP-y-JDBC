@@ -6,6 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import ec.edu.ups.dao.UsuarioDAO;
+import ec.edu.ups.modelo.Telefono;
 import ec.edu.ups.modelo.Usuario;
 
 public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements UsuarioDAO{

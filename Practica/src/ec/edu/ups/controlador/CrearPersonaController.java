@@ -7,19 +7,29 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ec.edu.ups.dao.GenericDAO;
+import ec.edu.ups.dao.UsuarioDAO;
+import ec.edu.ups.modelo.Usuario;
+import ec.edu.ups.mysql.jdbc.JDBCGenericDAO;
+import ec.edu.ups.mysql.jdbc.JDBCUsuarioDAO;
+
 /**
- * Servlet implementation class CrearPersonController
+ * Servlet implementation class CrearPersonaController
  */
-@WebServlet("/CrearPersonController")
-public class CrearPersonController extends HttpServlet {
+@WebServlet("/CrearPersonaController")
+public class CrearPersonaController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+	private UsuarioDAO usuarioDao;
+	private Usuario usuario;
+	private JDBCUsuarioDAO usuarioJDBC;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public CrearPersonController() {
-        super();
-        // TODO Auto-generated constructor stub
+    public CrearPersonaController() {
+    	
+        
     }
 
 	/**
@@ -34,8 +44,22 @@ public class CrearPersonController extends HttpServlet {
 	 * @see HttpServlet#doPost(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		doGet(request, response);
+		String url = null;
+		
+		try {
+			usuario.setCedula(request.getParameter("cedula"));
+			usuario.setNombre(request.getParameter("first_name"));
+			usuario.setApellido(request.getParameter("last_name"));
+			usuario.setCorreo(request.getParameter("email"));
+			usuario.setContrasenia(request.getParameter("password"));
+			usuarioJDBC.create(usuario);
+			System.out.println("hecho !");
+			
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+		}
+		
 	}
 
 }

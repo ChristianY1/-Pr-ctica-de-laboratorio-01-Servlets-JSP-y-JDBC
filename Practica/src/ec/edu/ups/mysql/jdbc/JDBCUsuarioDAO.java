@@ -20,10 +20,10 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 	@Override
 	public void create(Usuario usuario) {
 		// TODO Auto-generated method stub
-		conexionUno.update("INSERT usuario VALUES (" + usuario.getCedula() + ", '" 
-				 + usuario.getNombre() + ", '"
-				 + usuario.getApellido() + ", '"
-				 + usuario.getCorreo() + ", '"
+		conexionUno.update("INSERT usuario VALUES ('" + usuario.getCedula() + "', '" 
+				 + usuario.getNombre() + "', '"
+				 + usuario.getApellido() + "', '"
+				 + usuario.getCorreo() + "', '"
 				 + usuario.getContrasenia() + "')");
 		
 		

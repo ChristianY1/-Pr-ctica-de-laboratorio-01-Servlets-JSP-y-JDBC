@@ -6,6 +6,7 @@
 	<classpathentry kind="lib" path="Practica/WebContent/WEB-INF/lib/jstl-impl-1.2.jar"/>
 	<classpathentry kind="lib" path="Practica/WebContent/WEB-INF/lib/jstl-api-1.2.jar"/>
 	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/servlet-api.jar"/>
+	<classpathentry kind="lib" path="WebContent/WEB-INF/lib/mysql-connector-java-8.0.20.jar"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="output" path="Practica/build/classes"/>

@@ -24,7 +24,7 @@ import java.sql.Statement;
  */
 public class ContextJDBC {
 	private static final String DRIVER = "com.mysql.cj.jdbc.Driver";
-	private static final String URL = "jdbc:mysql://localhost/mydb2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
+	private static final String URL = "jdbc:mysql://localhost:3306/mydb2?useUnicode=true&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=UTC";
 	private static final String USER = "root";
 	private static final String PASS = "root";
 	private static ContextJDBC jdbc1 = null;
@@ -45,6 +45,7 @@ public class ContextJDBC {
 			Class.forName(DRIVER);
 			Connection connection = DriverManager.getConnection(URL, USER, PASS);
 			this.statement = connection.createStatement();
+			System.out.println("base conectada");
 		} catch (ClassNotFoundException e) {
 			System.out.println(">>>WARNING (JDBC:connect)...problemas con el driver\n" + e.getMessage());
 		} catch (SQLException e) {

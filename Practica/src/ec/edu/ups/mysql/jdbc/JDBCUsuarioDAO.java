@@ -26,6 +26,7 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 				 + usuario.getCorreo() + ", '"
 				 + usuario.getContrasenia() + "')");
 		
+		
 	}
 
 	@Override

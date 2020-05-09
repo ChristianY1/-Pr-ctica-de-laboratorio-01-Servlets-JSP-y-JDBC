@@ -12,6 +12,10 @@ public class Usuario implements Serializable {
 	private String correo;
 	private String contrasenia;
 	
+	public Usuario() {
+		
+	}
+	
 	public Usuario(String cedula, String nombre, String apellido, String correo, String contrasenia) {
 		super();
 		this.cedula = cedula;

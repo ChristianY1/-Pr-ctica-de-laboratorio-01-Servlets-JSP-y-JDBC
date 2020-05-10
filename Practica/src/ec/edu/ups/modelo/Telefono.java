@@ -12,9 +12,13 @@ public class Telefono implements Serializable{
 	private String operadora;
 	private Usuario usuario;
 	
+	public Telefono() {
+		
+	}
+	
 	
 
-	public Telefono(int codigo, String numero, String tipo, String operadora) {
+	public Telefono( int codigo, String numero, String tipo, String operadora) {
 		super();
 		this.codigo = codigo;
 		this.numero = numero;
@@ -63,11 +67,19 @@ public class Telefono implements Serializable{
 		this.usuario = usuario;
 	}
 
+
+
 	@Override
 	public String toString() {
 		return "Telefono [codigo=" + codigo + ", numero=" + numero + ", tipo=" + tipo + ", operadora=" + operadora
 				+ ", usuario=" + usuario + "]";
 	}
+
+
+
+	
+
+	
 	
 	
 	

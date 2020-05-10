@@ -21,10 +21,10 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 	public void create(Telefono telefono) {
 		// TODO Auto-generated method stub
 		conexionUno.update("INSERT Telefono VALUES (" + telefono.getCodigo() +", '"
-													  + telefono.getNumero() + ", '"
-													  + telefono.getTipo() + ", '"
-													  + telefono.getOperadora() + ", '"
-													  + telefono.getUsuario().getCedula() + ")");
+													  + telefono.getNumero() + "', '"
+													  + telefono.getTipo() + "', '"
+													  + telefono.getOperadora() + "', '"
+													  + telefono.getUsuario().getCedula() + "')");
 	}
 
 	@Override

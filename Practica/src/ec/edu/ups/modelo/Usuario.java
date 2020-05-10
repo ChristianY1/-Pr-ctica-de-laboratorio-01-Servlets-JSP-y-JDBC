@@ -11,7 +11,18 @@ public class Usuario implements Serializable {
 	private String apellido;
 	private String correo;
 	private String contrasenia;
+	private Telefono telefono;
 	
+	
+	
+	public Telefono getTelefono() {
+		return telefono;
+	}
+
+	public void setTelefono(Telefono telefono) {
+		this.telefono = telefono;
+	}
+
 	public Usuario() {
 		
 	}

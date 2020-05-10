@@ -97,4 +97,10 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 		return list;
 	}
 
+	@Override
+	public int validar(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return 0;
+	}
+
 }

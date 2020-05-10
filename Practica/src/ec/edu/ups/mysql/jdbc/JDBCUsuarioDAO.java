@@ -62,6 +62,7 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 											   "', usu_contrasenia = '"+ usuario.getContrasenia() + 
 											   "' WHERE usu_cedula = " + usuario.getCedula());
 		
+	
 	}
 
 	@Override
@@ -94,7 +95,25 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 		
 		return list;
 
-
 	}
+	//int r = 0;
+	@Override
+	public int validar(Usuario usuario) {
+		try {
+			ResultSet rs = conexionUno.query("SELECT * FROM usuario,telefono  WHERE usu_correo = '"
+					+ usuario.getCorreo() + "'AND usu_contrasenia = '" + usuario.getContrasenia() + "' AND usu_cedula = usuario_usu_cedula");
+			if (rs != null && rs.next()) {
+				return 1;
+			}
+			
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(">>>WARNING (JDBCCategoryDAO:find): " + e.getMessage());
+			
+		}
+		return 0;
+		}
+		
+	
 
 }

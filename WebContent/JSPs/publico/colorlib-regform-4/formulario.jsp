@@ -43,7 +43,7 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Cedula</label>
-                                    <input class="input--style-4" type="text" name="cedula">
+                                    <input class="input--style-4" type="text" name="cedula" maxlength="10" required>
                                 </div>
                             </div>
                           </div>
@@ -59,14 +59,14 @@
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Nombre</label>
-                                    <input class="input--style-4" type="text" name="first_name">
+                                    <input class="input--style-4" type="text" name="first_name" required>
                                 </div>
                             </div>
                             
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Apellido</label>
-                                    <input class="input--style-4" type="text" name="last_name">
+                                    <input class="input--style-4" type="text" name="last_name" required>
                                 </div>
                             </div>
                         </div>
@@ -75,14 +75,14 @@
                              <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Contraseña</label>
-                                    <input class="input--style-4" type="text" name="password">
+                                    <input class="input--style-4" type="text" name="password" required>
                                 </div>
                             </div>
                             
                             <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">E-mail</label>
-                                    <input class="input--style-4" type="email" name="email">
+                                    <input class="input--style-4" type="email" name="email" required>
                                 </div>
                             </div>
                         </div>
@@ -91,14 +91,14 @@
                              <div class="col-2">
                                 <div class="input-group">
                                     <label class="label">Número de teléfono</label>
-                                    <input class="input--style-4" type="text" name="telefono">
+                                    <input class="input--style-4" type="text" name="telefono" maxlength="10" required>
                                 </div>
                             </div>
                                <div class="input-group">
                            			 <label class="label">Tipo de teléfono</label>
                            				 <div class="rs-select2 js-select-simple select--no-search">
-                                <select name="tipo">
-                                    <option disabled="disabled" selected="TT">Elija</option>
+                                <select name="tipo" required>
+                                    <option disabled="disabled" selected="TT"> </option>
                                     <option>Celular</option>
                                     <option>Convencional</option>
                                  
@@ -111,8 +111,8 @@
                              		<div class = "input-group">
                              			<label class = "label">Tipo de operadora</label>
                              				<div class = "rs-select2 js-select-simple select--no-search">
-                             					<select name= "operadora">
-                             						<option disabled = "disabled" selected = "TO">Elija</option>
+                             					<select name= "operadora" required>
+                             						<option disabled = "disabled" selected = "TO"> </option>
                              						<option>Movistar</option>
                              						<option>Claro</option>
                              						<option>CNT</option>

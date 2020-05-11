@@ -71,7 +71,7 @@ public class CrearPersonaController extends HttpServlet {
 			telefonoDao.create(telefono);
 			System.out.println("hecho!");
 			
-			url = "/JSPs/publico/Login_v1/index.html";
+			url = "/JSPs/publico/Login_v1/index.jsp";
 			
 		} catch (Exception e) {
 			// TODO: handle exception

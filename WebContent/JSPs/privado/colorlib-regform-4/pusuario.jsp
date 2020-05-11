@@ -79,38 +79,39 @@
 </div>
     <div  class="p-t-15">
         <form id="contact" action="#">
-        <label class ="label">Mis Datos</label>
+        <label class ="title">Mis Datos</label>
             <h1></h1>
             <div class = "p-t-15" name = "datosUsuario">
-                <label>
-                    <input type="text" name="cédula"class="input--style-4" placeholder="John Smith" />
+                <label class = "label "> 
+                     Cédula: &nbsp; ${cedula} 
                 </label>
-                <label>
-                    <input type="text" name="nombre" class="input--style-4" placeholder="1234567" />
+                <label class = "label">
+                    Nombre: &nbsp; ${nombre}
                 </label>
-                <label>
-                    <input type="text" name="apellido" class="input--style-4" placeholder="" />
+                <label class = "label ">
+                    Apellido: &nbsp;  ${apellido}
                 </label>
-                <label>
-                    <input type="text" name="correo" class="input--style-4" placeholder="" />
+                <label class = "label ">
+                    Correo: &nbsp; ${correo}
                 </label>
-                <label>
-                    <input type="text" name="contrasenia" class="input--style-4" placeholder="" />
+                <label class = "label ">
+                    Contraseña: &nbsp; ${contrasenia}
                 </label>
             </div>
             <div class = "p-t-15">
-            	<label class ="label">Mis Teléfonos</label>
+            	<label class ="title">Mis Teléfonos</label>
             </div>
             
             <div class = "p-t-15" name = "datosTelefonos">
-                <label>
-                    <input type="text" name="numero"class="input--style-4" placeholder="John Smith" />
+                <label class="label">
+                    Número: &nbsp; ${numero}
                 </label>
-                <label>
-                    <input type="text" name="tipo" class="input--style-4" placeholder="1234567" />
+                <label class="label">
+                	Tipo: &nbsp; ${tipo}
+                    
                 </label>
-                <label>
-                    <input type="text" name="operadora" class="input--style-4" placeholder="" />
+                <label class="label">
+                     Operadora: &nbsp; ${operadora}
                 </label>
             </div>
             <div class="p-t-15">

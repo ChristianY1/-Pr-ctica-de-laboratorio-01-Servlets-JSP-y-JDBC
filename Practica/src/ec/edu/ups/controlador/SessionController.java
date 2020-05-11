@@ -9,7 +9,9 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import ec.edu.ups.dao.DAOFactory;
+import ec.edu.ups.dao.TelefonoDAO;
 import ec.edu.ups.dao.UsuarioDAO;
+import ec.edu.ups.modelo.Telefono;
 import ec.edu.ups.modelo.Usuario;
 
 /**
@@ -20,6 +22,10 @@ public class SessionController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UsuarioDAO usuarioDao;
 	private Usuario usuario;
+	
+	private TelefonoDAO telefonoDao;
+	private Telefono telefono;
+	
        
     /**
      * @see HttpServlet#HttpServlet()
@@ -27,6 +33,9 @@ public class SessionController extends HttpServlet {
     public SessionController() {
         usuarioDao = DAOFactory.getDaoFactory().getUsuarioDAO();
         usuario = new Usuario();
+        
+        telefonoDao = DAOFactory.getDaoFactory().getTelefonoDAO();
+        telefono = new Telefono();
     }
 
 	/**
@@ -40,6 +49,24 @@ public class SessionController extends HttpServlet {
 		try {	
 			if (usuarioDao.validar(usuario) == 1) {
 				HttpSession session = request.getSession(true);
+				
+				session.setAttribute("cedula", usuarioDao.buscarU(usuario).getCedula());
+				session.setAttribute("nombre", usuarioDao.buscarU(usuario).getNombre());
+				session.setAttribute("apellido", usuarioDao.buscarU(usuario).getApellido());
+				session.setAttribute("correo", usuarioDao.buscarU(usuario).getCorreo());
+				session.setAttribute("contrasenia", usuarioDao.buscarU(usuario).getContrasenia());
+				
+				String correo = usuarioDao.buscarU(usuario).getCorreo();
+				String pass = usuarioDao.buscarU(usuario).getContrasenia();
+				
+				session.setAttribute("numero", telefonoDao.buscarT(correo,pass).getNumero());
+				session.setAttribute("tipo", telefonoDao.buscarT(correo, pass).getTipo());
+				session.setAttribute("operadora", telefonoDao.buscarT(correo, pass).getOperadora());
+				
+				
+				
+				
+				
 				System.out.println("logeado");
 				url = "/JSPs/privado/colorlib-regform-4/pusuario.jsp";
 			}else {

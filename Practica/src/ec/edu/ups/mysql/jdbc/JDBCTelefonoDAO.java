@@ -103,4 +103,42 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 		return 0;
 	}
 
+	@Override
+	public Usuario buscarU(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return usuario;
+	}
+
+	@Override
+	public Telefono buscarT(String correo, String pass) {
+		Telefono telefono = null;
+		ResultSet rs = conexionUno.query("SELECT * FROM usuario,telefono  WHERE usu_correo = '"
+				+ correo + "'AND usu_contrasenia = '" + pass + "' AND usu_cedula = usuario_usu_cedula");
+		try {
+			if (rs != null && rs.next()) {
+				telefono = new Telefono(
+						rs.getInt("tel_codigo"),
+						rs.getString("tel_numero"),
+						rs.getString("tel_tipo"),
+						rs.getString("tel_operadora")
+						);
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(">>>WARNING (JDBCCategoryDAO:read): " + e.getMessage());
+		}
+		return telefono;
+	}
+
+	
+
+	
+
+	
+
+	
+
+	
+
 }

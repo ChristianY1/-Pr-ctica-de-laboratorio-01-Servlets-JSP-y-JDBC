@@ -115,5 +115,40 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 		}
 		
 	
+	public Usuario buscarU(Usuario usuario) {
+		
+		
+		ResultSet rs = conexionUno.query("SELECT * FROM usuario,telefono  WHERE usu_correo = '"
+				+ usuario.getCorreo() + "'AND usu_contrasenia = '" + usuario.getContrasenia() + "' AND usu_cedula = usuario_usu_cedula");
+		try {
+			if (rs != null && rs.next()) {
+				usuario = new Usuario(rs.getString("usu_cedula"),
+						  rs.getString("usu_nombre"),
+						  rs.getString("usu_apellido"),
+						  rs.getString("usu_correo"),
+						  rs.getString("usu_contrasenia"));
+			}
+			
+		} catch (Exception e) {
+			// TODO: handle exception
+			System.out.println(">>>WARNING (JDBCCategoryDAO:read): " + e.getMessage());
+		}
+		return usuario;
+		
+	}
 
+	@Override
+	public Telefono buscarT(String cedula, String correo) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	
+
+	
+
+	
+
+	
+	
 }

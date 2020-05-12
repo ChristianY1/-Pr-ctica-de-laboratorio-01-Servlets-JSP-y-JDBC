@@ -207,9 +207,7 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 		// TODO Auto-generated method stub
 		List<Telefono> list = new ArrayList<Telefono>();
 		
-		ResultSet rs = conexionDos.query("SELECT * FROM usuario,telefono WHERE usu_cedula ='"
-				+ telefono.getUsuario().getCedula()
-				+ "'ORDER BY FIELD (tel_codigo,'1') DESC");
+		ResultSet rs = conexionDos.query("SELECT * FROM usuario,telefono WHERE usu_cedula = usuario_usu_cedula AND usu_cedula= '" +telefono.getUsuario().getCedula()+"'");
 		try {
 			while (rs.next()) {
 				list.add(new Telefono(rs.getInt("tel_codigo"),

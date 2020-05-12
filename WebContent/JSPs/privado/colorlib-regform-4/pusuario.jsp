@@ -148,36 +148,49 @@
     <br />
     
     <div  class="p-t-15">
-        <form id="contact" action="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/ModificarController">
-        <label class ="title">Modificar</label>
+        <form id="contact" action="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/ListarTelefonos">
+        <label class ="title">Modificar numero</label>
+        <input type="text" name = "cedula" value = ${cedula}>
         <br />
-     <div class = "p-t-15">
-            	<label class ="title">Mis Teléfonos</label>
-            </div>
             	
-            	<input type = "text" name = "cedula6"  value = ${cedula}>
-            	
-            	<input type = "text" name = "codigo"  value = ${codigo} >
-            	
-            	<br/>
-            	
-            	<input type = "text" name = "numero2"  value = ${numero}>
-            	
-            	<input type = "text" name = "tipo2"  value = ${tipo}>
-            	
-            	
-            	<input type = "text" name = "operadora2"  value = ${operadora}>
-            	
+            		<c:set var="listaTelefonos" scope="request" value="${telefonos}" />
+	
+
+	<table>
+	<tr>	<td><strong>Codigo</strong></td>
+			<td><strong>Números</strong></td>
+			<td><strong>Tipo</strong></td>
+			<td><strong>Operadora</strong></td>
+			<td><strong>Acción</strong></td>
+			
+		</tr>
+		
+		<c:forEach var="p" items="${listaTelefonos}">
+		<tr>
+			<form action = "/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/ModificarController">
+			
+			<td><input type = "text" name = "codigo" value = ${p.codigo}></td>
+			<td><input type = "text" name = "numero" value = ${p.numero}></td>
+			<td><input type = "text" name = "tipo2" value =${p.tipo} ></td>
+			<td><input type = "text" name = "operadora2" value=${p.operadora}></td>
+			<td><button class="btn btn--radius-2 btn--blue" type = "submit">Modificar</button></td>
+			</form>
+			
+			
+		</tr>
+			
+			
+		</c:forEach>
+	</table>
             	
             	
                
             
             <div class="p-t-15">
-        		 	<button class="btn btn--radius-2 btn--blue" type="submit" name = "bMultiusos">Modificar </button>
+        		 	<button class="btn btn--radius-2 btn--blue" type="submit" name = "bMultiusos">listar </button>
            </div>
         </form>
     </div>
-    
     
     
     <br />

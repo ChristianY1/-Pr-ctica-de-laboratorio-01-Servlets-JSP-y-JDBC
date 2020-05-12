@@ -61,9 +61,9 @@ public class ModificarController extends HttpServlet {
 			
 			
 			
-			
+			System.out.println("codigoooooooo"+Integer.parseInt(request.getParameter("codigo")));
 			telefono.setCodigo(Integer.parseInt(request.getParameter("codigo")));
-			telefono.setNumero(request.getParameter("numero2"));
+			telefono.setNumero(request.getParameter("numero"));
 			telefono.setTipo(request.getParameter("tipo2"));
 			telefono.setOperadora(request.getParameter("operadora2"));
 			

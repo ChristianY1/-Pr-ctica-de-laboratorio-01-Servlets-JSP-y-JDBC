@@ -1,6 +1,8 @@
 package ec.edu.ups.controlador;
 
 import java.io.IOException;
+import java.util.List;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -15,29 +17,25 @@ import ec.edu.ups.modelo.Telefono;
 import ec.edu.ups.modelo.Usuario;
 
 /**
- * Servlet implementation class ModificarController
+ * Servlet implementation class ListarTelefonos
  */
-@WebServlet("/ModificarController")
-public class ModificarController extends HttpServlet {
+@WebServlet("/ListarTelefonos")
+public class ListarTelefonos extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private UsuarioDAO usuarioDao;
-	private Usuario usuario;
-	
-	private TelefonoDAO telefonoDao;
-	private Telefono telefono;
-	
-	
-	
-       
+    private UsuarioDAO usuarioDao;
+    private Usuario usuario;
+    private TelefonoDAO telefonoDao;
+    private Telefono telefono;
+    private List<Telefono> listaTelefonos;
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModificarController() {
-        usuarioDao = DAOFactory.getDaoFactory().getUsuarioDAO();
-        usuario = new Usuario();
-        
+    public ListarTelefonos() {
         telefonoDao = DAOFactory.getDaoFactory().getTelefonoDAO();
         telefono = new Telefono();
+        
+        usuarioDao = DAOFactory.getDaoFactory().getUsuarioDAO();
+        usuario = new Usuario();
     }
 
 	/**
@@ -46,38 +44,19 @@ public class ModificarController extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		// TODO Auto-generated method stub
 		String url = null;
-		usuario.setCedula(request.getParameter("cedula"));
-		
 		try {
-			
-//			usuario.setCedula(request.getParameter("cedula6"));
-//			java.util.List<Telefono> lista3 = telefonoDao.buscarContacto(usuario);
-//			
-//			
-//			request.setAttribute("datosUsuario5", lista3);
-//	
-//			url = "/JSPs/privado/colorlib-regform-4/pusuario.jsp";
-//			request.getRequestDispatcher(url).forward(request, response);
-			
-			
-			
-			
-			telefono.setCodigo(Integer.parseInt(request.getParameter("codigo")));
-			telefono.setNumero(request.getParameter("numero2"));
-			telefono.setTipo(request.getParameter("tipo2"));
-			telefono.setOperadora(request.getParameter("operadora2"));
-			
-			
-			
-			
-			telefonoDao.update(telefono);
+			usuario.setCedula(request.getParameter("cedula"));
+			telefono.setUsuario(usuario);
+			listaTelefonos = telefonoDao.find2(telefono);
+			request.setAttribute("telefonos", listaTelefonos);
 			
 			url = "/JSPs/privado/colorlib-regform-4/pusuario.jsp";
-			
+			getServletContext().getRequestDispatcher(url).forward(request, response);
 		} catch (Exception e) {
-			// TODO: handle exception
+			
 		}
-		request.getRequestDispatcher(url).forward(request, response);
+		
+		
 	}
 
 	/**

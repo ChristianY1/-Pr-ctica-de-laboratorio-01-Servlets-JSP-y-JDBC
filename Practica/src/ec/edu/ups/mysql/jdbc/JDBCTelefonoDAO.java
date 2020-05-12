@@ -34,7 +34,7 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 	public Telefono read(Integer id) {
 		// TODO Auto-generated method stub
 		Telefono telefono = null;
-		ResultSet rsTelefono = conexionUno.query("SELECT * FROM Telefono WHERE id=" + id);
+		ResultSet rsTelefono = conexionUno.query("SELECT * FROM Telefono WHERE tel_codigo=" + id);
 		try {
 			if (rsTelefono != null && rsTelefono.next()) {
 				telefono = new Telefono(rsTelefono.getInt("tel_codigo"),
@@ -66,7 +66,8 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 	@Override
 	public void update(Telefono telefono) {
 		// TODO Auto-generated method stub
-		conexionDos.update("UPDATE Telefono SET tel_codigo = '" + telefono.getNumero() +
+		conexionDos.update("UPDATE Telefono SET tel_codigo = '" + telefono.getCodigo() +
+												"', tel_numero = '"  + telefono.getNumero() +
 												"', tel_tipo = '"  + telefono.getTipo() + 
 												"', tel_operadora = '" + telefono.getOperadora() + 
 												"' WHERE tel_codigo =" + telefono.getCodigo() );
@@ -84,7 +85,7 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 	public List<Telefono> find() {
 		// TODO Auto-generated method stub
 		List<Telefono> list = new ArrayList<Telefono>();
-		ResultSet rs = conexionUno.query("SELECT * FROM Telefono ");
+		ResultSet rs = conexionDos.query("SELECT * FROM usuario,telefono WHERE usu_cedula = usuario_usu_cedula ORDER BY FIELD (tel_codigo,'1') DESC");
 		try {
 			while (rs.next()) {
 				list.add(new Telefono(rs.getInt("tel_codigo"),
@@ -167,14 +168,62 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 		return list;
 	}
 
+	
+	
+
+	public List<Telefono> listar(Usuario usuario){
+		return null;
+		
+	}
+
 	@Override
 	public List<Usuario> buscarContacto2(Usuario usuario) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
 	
+	public List<Telefono> buscarContacto3(Telefono telefono){
+		List<Telefono> list = new ArrayList<Telefono>();
+		ResultSet rs = conexionDos.query("SELECT * FROM usuario,telefono WHERE usu_cedula =' "
+				+ telefono.getUsuario().getCedula()
+				+ "'");
+		try {
+			while (rs.next()) {
+				list.add(new Telefono(rs.getInt("tel_codigo"),
+									  rs.getString("tel_numero"),
+									  rs.getString("tel_tipo"),
+									  rs.getString("tel_operadora")));			
+				
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(">>>WARNING (JDBCTelefonoDAO:find): " + e.getMessage());
+		}
+		return list;
+		
+	}
+	public List<Telefono> find2(Telefono telefono) {
+		// TODO Auto-generated method stub
+		List<Telefono> list = new ArrayList<Telefono>();
+		
+		ResultSet rs = conexionDos.query("SELECT * FROM usuario,telefono WHERE usu_cedula ='"
+				+ telefono.getUsuario().getCedula()
+				+ "'ORDER BY FIELD (tel_codigo,'1') DESC");
+		try {
+			while (rs.next()) {
+				list.add(new Telefono(rs.getInt("tel_codigo"),
+									  rs.getString("tel_numero"),
+									  rs.getString("tel_tipo"),
+									  rs.getString("tel_operadora")));			
+				
+			}
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(">>>WARNING (JDBCTelefonoDAO:find): " + e.getMessage());
+		}
+		return list;
+	}
 
 	
 

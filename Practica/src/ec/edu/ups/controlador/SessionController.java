@@ -59,6 +59,7 @@ public class SessionController extends HttpServlet {
 				String correo = usuarioDao.buscarU(usuario).getCorreo();
 				String pass = usuarioDao.buscarU(usuario).getContrasenia();
 				
+				session.setAttribute("codigo", telefonoDao.buscarT(correo,pass).getCodigo());
 				session.setAttribute("numero", telefonoDao.buscarT(correo,pass).getNumero());
 				session.setAttribute("tipo", telefonoDao.buscarT(correo, pass).getTipo());
 				session.setAttribute("operadora", telefonoDao.buscarT(correo, pass).getOperadora());

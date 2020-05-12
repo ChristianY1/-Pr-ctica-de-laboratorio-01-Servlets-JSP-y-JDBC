@@ -47,5 +47,7 @@ public interface GenericDAO<T, ID> {
 	public List<Usuario> buscarContacto2(Usuario usuario);
 	
 	public List<Telefono> buscarContacto(Usuario usuario);
-
+	
+	public List<Telefono> buscarContacto3(Telefono telefono);
+	public List<Telefono> find2(Telefono telefono);
 }

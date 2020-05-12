@@ -188,6 +188,18 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 		
 	}
 
+	@Override
+	public List<Telefono> buscarContacto3(Telefono telefono) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	@Override
+	public List<Telefono> find2(Telefono telefono) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
 	
 	
 

@@ -54,6 +54,7 @@ public class buscarController extends HttpServlet {
 		String url = null;
 		try {
 			usuario.setCedula(request.getParameter("search"));
+			usuario.setCorreo(request.getParameter("search"));
 			java.util.List<Telefono> lista = telefonoDao.buscarContacto(usuario);
 			java.util.List<Usuario> lista2 = usuarioDao.buscarContacto2(usuario);
 			

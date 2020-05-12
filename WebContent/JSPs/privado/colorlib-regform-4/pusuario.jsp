@@ -60,7 +60,7 @@
     	<form id="search" action="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/buscarController">
     
     	<label>
-        	<input type="text" name="search" class="input--style-4" placeholder="Ingrese el e-mail o número de cédula" />
+        	<input type="text" name="search" class="input--style-4" placeholder="Buscar..." />
         </label>
         	<div id="results">
         		<c:set var = "lista" scope="request" value = "${datosUsuario}"/>
@@ -88,7 +88,9 @@
             </label>
               <label class = "label ">
                     Operadora: &nbsp;  ${t.operadora}
+                    
             </label>
+            
 		</c:forEach>
 	
         	 
@@ -102,7 +104,7 @@
     </form>
 </div>
     <div  class="p-t-15">
-        <form id="contact" action="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/ModificarController">
+        <form id="contact" action="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/SesionController">
         <label class ="title">Mis Datos</label>
             <h1></h1>
             <div class = "p-t-15" name = "datosUsuario">
@@ -136,6 +138,7 @@
                 </label>
                 <label class="label">
                      Operadora: &nbsp; ${operadora}
+                     
                 </label>
             </div>
             
@@ -148,48 +151,26 @@
         <form id="contact" action="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/ModificarController">
         <label class ="title">Modificar</label>
         <br />
-        <label class ="title">Mis Datos</label>
-            <h1></h1>
-            <div class = "p-t-15" name = "datosUsuario">
-            	
-                <label class = "label " > 
-                      Cedula:
-                </label>
-                <input type = "text" name = "cedula2" value =${cedula}>
-                
-                
-                <label class = "label">
-                    Nombre: &nbsp; 
-                </label>
-                <input type = "text" name = "nombre2" value =${nombre} >
-                
-                <label class = "label ">
-                    Apellido: &nbsp;  
-                </label>
-                <input type = "text" name = "apellido2" value =${apellido} >
-                
-                <label class = "label ">
-                    Correo: &nbsp; 
-                </label>
-                <input type = "text" name = "correo2" value = ${correo}>
-                
-                
-                <label class = "label">
-                    Contraseña: &nbsp; 
-                </label>
-                <input type = "text" name = "contrasenia2" value =${contrasenia} >
-                
-            </div>
-            <div class = "p-t-15">
+     <div class = "p-t-15">
             	<label class ="title">Mis Teléfonos</label>
             </div>
-            
-            
-                
-                
-                <input type = "text" name = "operadora2" value = ${operadora}>
-                <input type = "text" name = "numero2" value = ${numero}>
-                <input type = "text" name = "tipo2" value = ${tipo}>
+            	
+            	<input type = "text" name = "cedula6"  value = ${cedula}>
+            	
+            	<input type = "text" name = "codigo"  value = ${codigo} >
+            	
+            	<br/>
+            	
+            	<input type = "text" name = "numero2"  value = ${numero}>
+            	
+            	<input type = "text" name = "tipo2"  value = ${tipo}>
+            	
+            	
+            	<input type = "text" name = "operadora2"  value = ${operadora}>
+            	
+            	
+            	
+               
             
             <div class="p-t-15">
         		 	<button class="btn btn--radius-2 btn--blue" type="submit" name = "bMultiusos">Modificar </button>
@@ -199,11 +180,116 @@
     
     
     
+    <br />
+    <br />
     
+    <div  class="p-t-15">
+        <form id="contact" action="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/AgregarTelefono">
+        <label class ="title">Agregar un telefono</label>
+        <br />
+        
+           <div class="row row-space">
+                             <div class="col-2">
+                                <div class="input-group">
+                                	<input type = text name = "cedula" value = ${cedula}>
+                                    <label class="label">Número de teléfono</label>
+                                    <input  class="input--style-4" type="text" name="numero2" maxlength="10" required>
+                                </div>
+                            </div>
+                               <div class="input-group">
+                           			 <label class="label">Tipo de teléfono</label>
+                           				 <div class="rs-select2 js-select-simple select--no-search">
+                                <select name="tipo2" required>
+                                    <option disabled="disabled" selected="TT"> </option>
+                                    <option>Celular</option>
+                                    <option>Convencional</option>
+                                 
+                                </select>
+                             <div class="select-dropdown"></div>
+                             
+                             
+                             <div class = "row row-space">
+                             	<div class = "col-1">
+                             		<div class = "input-group">
+                             			<label class = "label">Tipo de operadora</label>
+                             				<div class = "rs-select2 js-select-simple select--no-search">
+                             					<select name= "operadora2" required>
+                             						<option disabled = "disabled" selected = "TO"> </option>
+                             						<option>Movistar</option>
+                             						<option>Claro</option>
+                             						<option>CNT</option>
+                             					
+                             					</select>
+                             						<div class = "select-dropdown"></div>
+                             				
+                             				</div>
+                             		
+                             		
+                             		</div>
+                             	
+                             	</div>
+                             
+                             
+                             </div>
+                             
+                         </div>
+                           <br>
+
+                            
+                        </div>
+                     
+                        </div>
+            
+            <div class="p-t-15">
+        		 	<button class="btn btn--radius-2 btn--blue" type="submit" name = "bMultiusos">Agregar Teléfono</button>
+           </div>
+        </form>
+    </div>
     
-    
-    
-    
+    <div  class="p-t-15">
+        <form id="contact" action="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/ListarTelefonos">
+        <label class ="title">Eliminar numero</label>
+        <input type="text" name = "cedula" value = ${cedula}>
+        <br />
+            	
+            		<c:set var="listaTelefonos" scope="request" value="${telefonos}" />
+	
+
+	<table>
+	<tr>	<td><strong>Codigo</strong></td>
+			<td><strong>Números</strong></td>
+			<td><strong>Tipo</strong></td>
+			<td><strong>Operadora</strong></td>
+			<td><strong>Acción</strong></td>
+			
+		</tr>
+		
+		<c:forEach var="p" items="${listaTelefonos}">
+		<tr>
+			<form action = "/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/EliminarController">
+			
+			<td><input type = "text" name = "codigo" value = ${p.codigo}></td>
+			<td><input type = "text" name = "numero2" value = ${p.numero}></td>
+			<td><input type = "text" name = "tipo2" value =${p.tipo} ></td>
+			<td><input type = "text" name = "operadora2" value=${p.operadora}></td>
+			<td><button class="btn btn--radius-2 btn--blue" type = "submit">Borrar</button></td>
+			</form>
+			
+			
+		</tr>
+			
+			
+		</c:forEach>
+	</table>
+            	
+            	
+               
+            
+            <div class="p-t-15">
+        		 	<button class="btn btn--radius-2 btn--blue" type="submit" name = "bMultiusos">listar </button>
+           </div>
+        </form>
+    </div>
     
     
     

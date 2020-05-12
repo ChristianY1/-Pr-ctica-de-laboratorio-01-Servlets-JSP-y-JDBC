@@ -149,7 +149,7 @@
                          	<div class = "col-2">
                          		<div class = "input-group">
                          		 	<div class="text-center p-t-136">
-										<a class="txt2" href="../Login_v1/index.jsp">
+										<a class="txt2" href="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/JSPs/publico/Login_v1/index.jsp">
 										<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
 											Regresar
 											

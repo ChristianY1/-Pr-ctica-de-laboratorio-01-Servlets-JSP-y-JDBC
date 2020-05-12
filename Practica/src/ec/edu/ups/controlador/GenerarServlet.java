@@ -14,25 +14,24 @@ import ec.edu.ups.modelo.Telefono;
 import ec.edu.ups.modelo.Usuario;
 
 /**
- * Servlet implementation class ModificarController
+ * Servlet implementation class GenerarServlet
  */
-@WebServlet("/ModificarController")
-public class ModificarController extends HttpServlet {
+@WebServlet("/GenerarServlet")
+public class GenerarServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private UsuarioDAO usuarioDao;
 	private Usuario usuario;
+	private java.util.List<Usuario> lista2;
 	
 	private TelefonoDAO telefonoDao;
 	private Telefono telefono;
-	
-	
-	
+	private java.util.List<Telefono> lista;
        
     /**
      * @see HttpServlet#HttpServlet()
      */
-    public ModificarController() {
-        usuarioDao = DAOFactory.getDaoFactory().getUsuarioDAO();
+    public GenerarServlet() {
+    	usuarioDao  = DAOFactory.getDaoFactory().getUsuarioDAO();
         usuario = new Usuario();
         
         telefonoDao = DAOFactory.getDaoFactory().getTelefonoDAO();
@@ -47,29 +46,21 @@ public class ModificarController extends HttpServlet {
 		String url = null;
 		try {
 			usuario.setCedula(request.getParameter("cedula2"));
-			usuario.setNombre(request.getParameter("nombre2"));
-			usuario.setApellido(request.getParameter("apellido2"));
-			usuario.setCorreo(request.getParameter("correo2"));
-			usuario.setContrasenia(request.getParameter("contrasenia2"));
+			java.util.List<Telefono> lista = telefonoDao.buscarContacto(usuario);
+			java.util.List<Usuario> lista2 = usuarioDao.buscarContacto2(usuario);
 			
+			request.setAttribute("datosUsuario", lista2);
+			request.setAttribute("datosTelefono",lista);
 			
-			
-			telefono.setCodigo(0);
-			telefono.setNumero(request.getParameter("numero2"));
-			telefono.setTipo(request.getParameter("tipo2"));
-			telefono.setOperadora(request.getParameter("operadora2"));
-			telefono.setUsuario(usuario);
-			usuario.setTelefono(telefono);
-			
-			usuarioDao.update(usuario);
-			telefonoDao.update(telefono);
-			
-			url = "/JSPs/privado/colorlib-regform-4/pusuario.jsp";
+			url = "/JSPs/privado/colorlib-regform-4/modificar.jsp";
+			request.getRequestDispatcher(url).forward(request, response);
 			
 		} catch (Exception e) {
 			// TODO: handle exception
+			String error = "usuario no encontrado";
+			request.setAttribute("datosUsuario", error);
+			request.setAttribute("datosTelefono", error);
 		}
-		request.getRequestDispatcher(url).forward(request, response);
 	}
 
 	/**

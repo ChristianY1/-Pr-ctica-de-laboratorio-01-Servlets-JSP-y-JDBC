@@ -44,14 +44,9 @@
 			<div class = "card-body">
 				
 			   <div id="navigation">
-    				<ul class="nav-list">
-        				<li id="js-show-all"><a href=/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/JSPs/privado/colorlib-regform-4/modificar.jsp>Modificar mi perfil</a></li>
-       				    <li id="js-search"><a href = /-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/JSPs/privado/colorlib-regform-4/Eliminar.jsp>Eliminar un teléfono</a> </li>
-       				    <li id="js-add-new"><a href = /-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/JSPs/privado/colorlib-regform-4/Agregar.jsp>Agregar un teléfono</a></li>
-        				
-        				
-        				
-    				</ul>
+    				<a class="txt2" href="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/JSPs/publico/Login_v1/index.jsp"> 
+    				<i class="fa fa-long-arrow-left m-l-5" aria-hidden="true"></i>
+											Cerrar Sesión</a>
 				
 				</div>
 				
@@ -107,12 +102,12 @@
     </form>
 </div>
     <div  class="p-t-15">
-        <form id="contact" action="#">
+        <form id="contact" action="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/ModificarController">
         <label class ="title">Mis Datos</label>
             <h1></h1>
             <div class = "p-t-15" name = "datosUsuario">
-                <label class = "label "> 
-                     Cédula: &nbsp; ${cedula} 
+                <label class = "label " > 
+                      Cedula: &nbsp; ${cedula} 
                 </label>
                 <label class = "label">
                     Nombre: &nbsp; ${nombre}
@@ -143,11 +138,97 @@
                      Operadora: &nbsp; ${operadora}
                 </label>
             </div>
+            
+        </form>
+    </div>
+    <br />
+    <br />
+    
+    <div  class="p-t-15">
+        <form id="contact" action="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/ModificarController">
+        <label class ="title">Modificar</label>
+        <br />
+        <label class ="title">Mis Datos</label>
+            <h1></h1>
+            <div class = "p-t-15" name = "datosUsuario">
+            	
+                <label class = "label " > 
+                      Cedula:
+                </label>
+                <input type = "text" name = "cedula2" value =${cedula}>
+                
+                
+                <label class = "label">
+                    Nombre: &nbsp; 
+                </label>
+                <input type = "text" name = "nombre2" value =${nombre} >
+                
+                <label class = "label ">
+                    Apellido: &nbsp;  
+                </label>
+                <input type = "text" name = "apellido2" value =${apellido} >
+                
+                <label class = "label ">
+                    Correo: &nbsp; 
+                </label>
+                <input type = "text" name = "correo2" value = ${correo}>
+                
+                
+                <label class = "label">
+                    Contraseña: &nbsp; 
+                </label>
+                <input type = "text" name = "contrasenia2" value =${contrasenia} >
+                
+            </div>
+            <div class = "p-t-15">
+            	<label class ="title">Mis Teléfonos</label>
+            </div>
+            
+            
+                
+                
+                <input type = "text" name = "operadora2" value = ${operadora}>
+                <input type = "text" name = "numero2" value = ${numero}>
+                <input type = "text" name = "tipo2" value = ${tipo}>
+            
             <div class="p-t-15">
-        		 	<button class="btn btn--radius-2 btn--blue" type="submit" name = "bMultiusos">Submit</button>
+        		 	<button class="btn btn--radius-2 btn--blue" type="submit" name = "bMultiusos">Modificar </button>
            </div>
         </form>
     </div>
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
 <div id = "show-panel" class="panel">
   
 </div>

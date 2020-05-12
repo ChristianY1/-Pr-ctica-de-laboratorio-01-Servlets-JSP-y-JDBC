@@ -1,5 +1,6 @@
 package ec.edu.ups.mysql.jdbc;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
@@ -136,6 +137,8 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 		return usuario;
 		
 	}
+	
+	
 
 	@Override
 	public Telefono buscarT(String cedula, String correo) {
@@ -143,6 +146,54 @@ public class JDBCUsuarioDAO extends JDBCGenericDAO<Usuario, String> implements U
 		return null;
 	}
 
+	@Override
+	public List<Telefono> buscarContacto(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+	
+	public List<Usuario> buscarContacto2(Usuario usuario){
+		List<Usuario> list = new ArrayList<Usuario>();
+		ResultSet rs = conexionUno.query("SELECT *\r\n" + 
+				"FROM usuario\r\n" + 
+				"INNER JOIN telefono\r\n" + 
+				"ON usu_cedula= usuario_usu_cedula\r\n" + 
+				"WHERE usu_correo = '" + usuario.getCorreo()
+				+ "' OR usu_cedula = '"
+				+ usuario.getCedula()
+				+ "' \r\n" + 
+				"group by usu_cedula");
+		try {
+			while (rs.next()) {
+				list.add(new Usuario(
+						rs.getString("usu_cedula"),
+						rs.getString("usu_nombre"),
+						rs.getString("usu_apellido"),
+						rs.getString("usu_correo"),
+						rs.getString("usu_contrasenia")
+						));
+				
+				
+				
+			}
+			
+                
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(">>>WARNING (JDBCTelefonoDAO:find): " + e.getMessage());
+		}
+		
+		
+		return list;
+		
+	}
+
+	
+	
+
+	
+
+	
 	
 
 	

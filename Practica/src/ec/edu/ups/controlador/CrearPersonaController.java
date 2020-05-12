@@ -51,6 +51,7 @@ public class CrearPersonaController extends HttpServlet {
 		String url = null;
 		
 		try {
+			
 			usuario.setCedula(request.getParameter("cedula"));
 			usuario.setNombre(request.getParameter("first_name"));
 			usuario.setApellido(request.getParameter("last_name"));
@@ -73,13 +74,16 @@ public class CrearPersonaController extends HttpServlet {
 			
 			url = "/JSPs/publico/Login_v1/index.jsp";
 			
+			
+			
 		} catch (Exception e) {
 			// TODO: handle exception
 			
 			
 			
 		}
-		getServletContext().getRequestDispatcher(url).forward(request, response);
+		request.getRequestDispatcher(url).forward(request, response);
+
 
 	}
 

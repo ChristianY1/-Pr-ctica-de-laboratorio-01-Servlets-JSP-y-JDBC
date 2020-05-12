@@ -1,9 +1,12 @@
 package ec.edu.ups.mysql.jdbc;
 
+import java.io.Serializable;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.stream.Stream;
 
 import ec.edu.ups.dao.TelefonoDAO;
 import ec.edu.ups.modelo.Telefono;
@@ -81,7 +84,7 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 	public List<Telefono> find() {
 		// TODO Auto-generated method stub
 		List<Telefono> list = new ArrayList<Telefono>();
-		ResultSet rs = conexionUno.query("SELECT * FROM Telefono");
+		ResultSet rs = conexionUno.query("SELECT * FROM Telefono ");
 		try {
 			while (rs.next()) {
 				list.add(new Telefono(rs.getInt("tel_codigo"),
@@ -130,6 +133,48 @@ public class JDBCTelefonoDAO extends JDBCGenericDAO<Telefono, Integer> implement
 		}
 		return telefono;
 	}
+
+	public List<Telefono> buscarContacto(Usuario usuario) {
+		// TODO Auto-generated method stub
+		List<Telefono> list = new ArrayList<Telefono>();
+		List<Usuario> list2 = new ArrayList<Usuario>();
+		List<Serializable> newList = null;
+		ResultSet rs = conexionUno.query("SELECT *\r\n" + 
+				"FROM usuario\r\n" + 
+				"INNER JOIN telefono\r\n" + 
+				"ON usu_cedula= usuario_usu_cedula\r\n" + 
+				"WHERE usu_correo = '" + usuario.getCorreo()
+				+ "' OR usu_cedula = '"
+				+ usuario.getCedula()
+				+ "' \r\n" + 
+				"group by usu_cedula");
+		try {
+			while (rs.next()) {
+				list.add(new Telefono(rs.getInt("tel_codigo"),
+						 rs.getString("tel_numero"),
+						 rs.getString("tel_tipo"),
+						 rs.getString("tel_operadora")));
+				
+				
+				
+			}
+			
+                
+		} catch (SQLException e) {
+			// TODO: handle exception
+			System.out.println(">>>WARNING (JDBCTelefonoDAO:find): " + e.getMessage());
+		}
+		return list;
+	}
+
+	@Override
+	public List<Usuario> buscarContacto2(Usuario usuario) {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+
+	
 
 	
 

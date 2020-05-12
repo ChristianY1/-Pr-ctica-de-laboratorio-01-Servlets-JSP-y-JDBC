@@ -45,11 +45,12 @@
 				
 			   <div id="navigation">
     				<ul class="nav-list">
-        				<li id="js-show-all">Modificar</li>
-       				    <li id="js-search">Eliminar</li>
-        				<li id="js-add-new">Buscar</li>
-        				<li id="js-add-new">Agregar un teléfono</li>
-        				<li id="js-add-new">Ver mis teléfonos</li>
+        				<li id="js-show-all"><a href=/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/JSPs/privado/colorlib-regform-4/modificar.jsp>Modificar mi perfil</a></li>
+       				    <li id="js-search"><a href = /-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/JSPs/privado/colorlib-regform-4/Eliminar.jsp>Eliminar un teléfono</a> </li>
+       				    <li id="js-add-new"><a href = /-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/JSPs/privado/colorlib-regform-4/Agregar.jsp>Agregar un teléfono</a></li>
+        				
+        				
+        				
     				</ul>
 				
 				</div>
@@ -61,18 +62,46 @@
 				 <label class = "label">Buscar Contactos:</label>
 			</div>
    
-    	<form id="search" action="#">
+    	<form id="search" action="/-Pr-ctica-de-laboratorio-01-Servlets-JSP-y-JDBC/buscarController">
     
     	<label>
         	<input type="text" name="search" class="input--style-4" placeholder="Ingrese el e-mail o número de cédula" />
         </label>
         	<div id="results">
+        		<c:set var = "lista" scope="request" value = "${datosUsuario}"/>
+        		<c:set var = "lista2" scope="request" value = "${datosTelefono}"/>
+        		<label class = "label"> Usuario</label>
+       
+		<c:forEach var="p" items="${lista}">
+			<label class = "label ">
+                    Cedula: &nbsp;  ${p.cedula}
+            </label>
+            <label class = "label ">
+                    Nombre: &nbsp;  ${p.nombre}
+            </label>
+            <label class = "label ">
+                    Apellido: &nbsp;  ${p.apellido}
+            </label>
+            <label class = "label ">
+                    correo: &nbsp;  ${p.correo} &nbsp; <a href="mailto:${p.correo}">Escribir un correo</a>
+            </label>
+		</c:forEach>
+		<c:forEach var="t" items="${lista2}">
+			
+            <label class = "label ">
+                    numero: &nbsp;  ${t.numero} &nbsp; <a href= "tel:${t.numero}" >llamar</a>
+            </label>
+              <label class = "label ">
+                    Operadora: &nbsp;  ${t.operadora}
+            </label>
+		</c:forEach>
+	
+        	 
+        		
         	</div>
-       			 <div>
-            
-        		 </div>
+       			 
         		 <div class="p-t-15">
-        		 	<button class="btn btn--radius-2 btn--blue" type="submit">Buscar</button>
+        		 	<button class="btn btn--radius-2 btn--blue" type="submit" maxlength="10" required>Buscar</button>
         		 </div>
                 	
     </form>
@@ -94,7 +123,7 @@
                 <label class = "label ">
                     Correo: &nbsp; ${correo}
                 </label>
-                <label class = "label ">
+                <label >
                     Contraseña: &nbsp; ${contrasenia}
                 </label>
             </div>

@@ -39,10 +39,13 @@ public interface GenericDAO<T, ID> {
 	
 	public Usuario buscarU(Usuario entity);
 	
-	
-
-	public List<T> find();
+	//public List<Telefono> buscarContacto(Usuario usuario);
 
 	int validar(Usuario usuario);
+
+	public List<T> find();
+	public List<Usuario> buscarContacto2(Usuario usuario);
+	
+	public List<Telefono> buscarContacto(Usuario usuario);
 
 }

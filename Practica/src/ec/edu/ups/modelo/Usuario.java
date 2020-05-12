@@ -76,11 +76,7 @@ public class Usuario implements Serializable {
 		this.contrasenia = contrasenia;
 	}
 
-	@Override
-	public String toString() {
-		return "Usuario [cedula=" + cedula + ", nombre=" + nombre + ", apellido=" + apellido + ", correo=" + correo
-				+ ", contrasenia=" + contrasenia + "]";
-	}
+	
 	
 	
 	

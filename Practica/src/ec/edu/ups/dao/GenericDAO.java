@@ -2,8 +2,10 @@ package ec.edu.ups.dao;
 
 import java.util.List;
 
-import ec.edu.ups.modelo.Telefono;
-import ec.edu.ups.modelo.Usuario;
+import ec.edu.ups.Entidades.Telefono;
+import ec.edu.ups.Entidades.Usuario;
+
+
 
 /**
  * Interface GenericDAO.
@@ -50,4 +52,6 @@ public interface GenericDAO<T, ID> {
 	
 	public List<Telefono> buscarContacto3(Telefono telefono);
 	public List<Telefono> find2(Telefono telefono);
+
+	List<T> find(String[] attributes, String[] values, String order, int index, int size);
 }

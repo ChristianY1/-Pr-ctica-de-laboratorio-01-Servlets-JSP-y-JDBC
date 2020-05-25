@@ -9,11 +9,12 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sun.xml.internal.bind.v2.schemagen.xmlschema.List;
 
+import ec.edu.ups.Entidades.Telefono;
+import ec.edu.ups.Entidades.Usuario;
 import ec.edu.ups.dao.DAOFactory;
 import ec.edu.ups.dao.TelefonoDAO;
 import ec.edu.ups.dao.UsuarioDAO;
-import ec.edu.ups.modelo.Telefono;
-import ec.edu.ups.modelo.Usuario;
+
 
 
 

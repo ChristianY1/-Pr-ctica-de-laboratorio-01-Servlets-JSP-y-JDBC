@@ -7,14 +7,16 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import ec.edu.ups.Entidades.Telefono;
+import ec.edu.ups.Entidades.Usuario;
 import ec.edu.ups.dao.DAOFactory;
 import ec.edu.ups.dao.GenericDAO;
 import ec.edu.ups.dao.TelefonoDAO;
 import ec.edu.ups.dao.UsuarioDAO;
-import ec.edu.ups.modelo.Telefono;
-import ec.edu.ups.modelo.Usuario;
-import ec.edu.ups.mysql.jdbc.JDBCGenericDAO;
-import ec.edu.ups.mysql.jdbc.JDBCUsuarioDAO;
+//import ec.edu.ups.modelo.Telefono;
+//import ec.edu.ups.modelo.Usuario;
+//import ec.edu.ups.mysql.jdbc.JDBCGenericDAO;
+//import ec.edu.ups.mysql.jdbc.JDBCUsuarioDAO;
 
 /**
  * Servlet implementation class CrearPersonaController
@@ -64,7 +66,7 @@ public class CrearPersonaController extends HttpServlet {
 			telefono.setTipo(request.getParameter("tipo"));
 			telefono.setOperadora(request.getParameter("operadora"));
 			telefono.setUsuario(usuario);
-			usuario.setTelefono(telefono);
+			usuario.addTelefonos(telefono);
 			
 			
 			

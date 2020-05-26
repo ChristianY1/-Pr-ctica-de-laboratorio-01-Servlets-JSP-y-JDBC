@@ -7,8 +7,8 @@ import ec.edu.ups.dao.UsuarioDAO;
 
 public class JPAUsuario extends JPAGenericDAO<Usuario, String> implements UsuarioDAO{
 
-	public JPAUsuario(Class<Usuario> pesistentClass, EntityManager em) {
-		super(pesistentClass, em);
+	public JPAUsuario() {
+		super(Usuario.class);
 		// TODO Auto-generated constructor stub
 	}
 

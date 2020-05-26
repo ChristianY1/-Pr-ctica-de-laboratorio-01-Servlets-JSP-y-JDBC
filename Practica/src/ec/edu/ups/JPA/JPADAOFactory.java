@@ -15,13 +15,13 @@ public class JPADAOFactory extends DAOFactory{
 	@Override
 	public UsuarioDAO getUsuarioDAO() {
 		// TODO Auto-generated method stub
-		return new JPAUsuario(null, null);
+		return new JPAUsuario();
 	}
 
 	@Override
 	public TelefonoDAO getTelefonoDAO() {
 		// TODO Auto-generated method stub
-		return new JPATelefono(null, null);
+		return new JPATelefono();
 	}
 
 }

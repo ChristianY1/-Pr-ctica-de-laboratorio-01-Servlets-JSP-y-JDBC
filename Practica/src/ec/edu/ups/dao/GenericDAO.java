@@ -54,4 +54,8 @@ public interface GenericDAO<T, ID> {
 	public List<Telefono> find2(Telefono telefono);
 
 	List<T> find(String[] attributes, String[] values, String order, int index, int size);
+
+	List<T> find(String[] attributes, String[] values);
+
+	void deleteByID(ID id);
 }
